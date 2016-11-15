@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="SFML\lib\sfml-audio-d.pdb" />
+    <None Include="SFML\lib\sfml-audio-s-d.pdb" />
+    <None Include="SFML\lib\sfml-graphics-d.pdb" />
+    <None Include="SFML\lib\sfml-graphics-s-d.pdb" />
+    <None Include="SFML\lib\sfml-network-d.pdb" />
+    <None Include="SFML\lib\sfml-network-s-d.pdb" />
+    <None Include="SFML\lib\sfml-system-d.pdb" />
+    <None Include="SFML\lib\sfml-system-s-d.pdb" />
+    <None Include="SFML\lib\sfml-window-d.pdb" />
+    <None Include="SFML\lib\sfml-window-s-d.pdb" />
+    <None Include="Assets\Art\Tilesheets\Tiles.data" />
+    <None Include="Assets\Audio\BGM\Soliloquy.ogg" />
+    <None Include="Assets\Shaders\pixelate.frag" />
+    <None Include="Assets\Shaders\FreezeFlash.frag" />
+    <None Include="Assets\Shaders\blink.frag" />
+    <None Include="Assets\Shaders\blur.frag" />
+    <None Include="Assets\Shaders\storm.vert" />
+    <None Include="Assets\Shaders\wave.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Actor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Graphics\Effect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="SFML\lib\flac.lib" />
+    <Library Include="SFML\lib\freetype.lib" />
+    <Library Include="SFML\lib\jpeg.lib" />
+    <Library Include="SFML\lib\ogg.lib" />
+    <Library Include="SFML\lib\openal32.lib" />
+    <Library Include="SFML\lib\sfml-audio.lib" />
+    <Library Include="SFML\lib\sfml-audio-d.lib" />
+    <Library Include="SFML\lib\sfml-audio-s.lib" />
+    <Library Include="SFML\lib\sfml-audio-s-d.lib" />
+    <Library Include="SFML\lib\sfml-graphics.lib" />
+    <Library Include="SFML\lib\sfml-graphics-d.lib" />
+    <Library Include="SFML\lib\sfml-graphics-s.lib" />
+    <Library Include="SFML\lib\sfml-graphics-s-d.lib" />
+    <Library Include="SFML\lib\sfml-main.lib" />
+    <Library Include="SFML\lib\sfml-main-d.lib" />
+    <Library Include="SFML\lib\sfml-network.lib" />
+    <Library Include="SFML\lib\sfml-network-d.lib" />
+    <Library Include="SFML\lib\sfml-network-s.lib" />
+    <Library Include="SFML\lib\sfml-network-s-d.lib" />
+    <Library Include="SFML\lib\sfml-system.lib" />
+    <Library Include="SFML\lib\sfml-system-d.lib" />
+    <Library Include="SFML\lib\sfml-system-s.lib" />
+    <Library Include="SFML\lib\sfml-system-s-d.lib" />
+    <Library Include="SFML\lib\sfml-window.lib" />
+    <Library Include="SFML\lib\sfml-window-d.lib" />
+    <Library Include="SFML\lib\sfml-window-s.lib" />
+    <Library Include="SFML\lib\sfml-window-s-d.lib" />
+    <Library Include="SFML\lib\vorbis.lib" />
+    <Library Include="SFML\lib\vorbisenc.lib" />
+    <Library Include="SFML\lib\vorbisfile.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Art\Tilesheets\Tiles.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Art\UI\Arrow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Art\UI\ControllerButtons.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Art\UI\Gray.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Art\UI\ready.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Art\UI\ControllerButtons\A.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Art\UI\ControllerButtons\B.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Art\UI\ControllerButtons\X.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Art\UI\ControllerButtons\Y.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Art\Backgrounds\BG.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\Audio\BGM\Soliloquy.mp3" />
+    <Media Include="Assets\Audio\SFX\Bloop.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Assets\Audio\SFX\Select.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Fonts\arial.ttf" />
+    <Font Include="Assets\Fonts\arialbd.ttf" />
+    <Font Include="Assets\Fonts\arialbi.ttf" />
+    <Font Include="Assets\Fonts\ariali.ttf" />
+    <Font Include="Assets\Fonts\ariblk.ttf" />
+    <Font Include="Assets\Fonts\SpindlesEnd.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Classes\Actor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Graphics\Effect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
