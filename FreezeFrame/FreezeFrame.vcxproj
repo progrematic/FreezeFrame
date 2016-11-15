@@ -155,6 +155,7 @@
     <None Include="Assets\Shaders\pixelate.frag" />
     <None Include="Assets\Shaders\storm.vert" />
     <None Include="Assets\Shaders\wave.vert" />
+    <None Include="Main.cpp.old" />
     <None Include="packages.config" />
     <None Include="SFML\lib\sfml-audio-d.pdb" />
     <None Include="SFML\lib\sfml-audio-s-d.pdb" />
@@ -170,6 +171,9 @@
   <ItemGroup>
     <ClCompile Include="Classes\Actor.cpp" />
     <ClCompile Include="Classes\Graphics\Effect.cpp" />
+    <ClCompile Include="Classes\Graphics\Screens\Screen.cpp" />
+    <ClCompile Include="Classes\Graphics\ScreenManager.cpp" />
+    <ClCompile Include="Classes\Graphics\Screens\TitleScreen.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +236,10 @@
   <ItemGroup>
     <ClInclude Include="Classes\Actor.h" />
     <ClInclude Include="Classes\Graphics\Effect.h" />
+    <ClInclude Include="Globals.h" />
+    <ClInclude Include="Classes\Graphics\Screens\Screen.h" />
+    <ClInclude Include="Classes\Graphics\ScreenManager.h" />
+    <ClInclude Include="Classes\Graphics\Screens\TitleScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
