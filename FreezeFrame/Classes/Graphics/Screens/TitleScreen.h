@@ -1,10 +1,11 @@
 #ifndef FF_TITLESCREEN
 #define FF_TITLESCREEN
 
-#include "Screen.h"
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <vector>
+#include "../ScreenManager.h"
+#include "../Effect.h"
 
 using namespace std;
 using namespace sf;
@@ -16,15 +17,15 @@ public:
 	~TitleScreen();
 
 	void Load() override;
+	void PollEvent(Event e) override;
 	void Update(float dt) override;
 	void Draw(RenderWindow* window) override;
 	void Unload() override;
 
+	ScreenID GetScreenID() { return ScreenID::TitleScreen; }
 private:
 	Texture bgTexture;
-	vector<Sprite*> bgSprites;
-	int bgSpriteNum;
-	float bgSpeed;
+	Sprite bgSprite;
 
 	Text titleText;
 };

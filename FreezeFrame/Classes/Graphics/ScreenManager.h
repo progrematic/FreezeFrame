@@ -2,7 +2,6 @@
 #define FF_SCREENMANAGER
 
 #include <SFML/Graphics.hpp>
-#include "Screens/Screen.h"
 #include "../../Globals.h"
 
 #include <iostream>
@@ -11,7 +10,29 @@
 using namespace std;
 using namespace sf;
 
-class Screen;
+class Screen
+{
+public:
+	enum ScreenID
+	{
+		TitleScreen,
+		SettingsScreen,
+		HelpScreen,
+		ScreenIDMax
+	};
+
+	virtual void Load() = 0;
+	virtual void PollEvent(Event e) = 0;
+	virtual void Update(float dt) = 0;
+	virtual void Draw(RenderWindow *window) = 0;
+	virtual void Unload() = 0;
+
+	virtual ScreenID GetScreenID() = 0;
+
+private:
+
+};
+
 class ScreenManager
 {
 public:
@@ -22,16 +43,23 @@ public:
 
 	void LoadScreens();
 
+	void PollEvent(Event e);
 	void Update(float dt);
 	void Draw(RenderWindow* window);
+	
+	void PushScreen(Screen::ScreenID screen);
+	void PopScreen();
 
 	Font& GetFont();
 
 private:
 	static ScreenManager* instance;
 
+	int GetCurrentScreenID();
+	Screen* GetCurrentScreen();
+
 	vector<Screen*> screens;
-	int curScreen;
+	vector<Screen::ScreenID> screenStack;
 
 	Font gameFont;
 };

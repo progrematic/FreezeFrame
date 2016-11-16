@@ -171,8 +171,9 @@
   <ItemGroup>
     <ClCompile Include="Classes\Actor.cpp" />
     <ClCompile Include="Classes\Graphics\Effect.cpp" />
-    <ClCompile Include="Classes\Graphics\Screens\Screen.cpp" />
     <ClCompile Include="Classes\Graphics\ScreenManager.cpp" />
+    <ClCompile Include="Classes\Graphics\Screens\HelpScreen.cpp" />
+    <ClCompile Include="Classes\Graphics\Screens\SettingsScreen.cpp" />
     <ClCompile Include="Classes\Graphics\Screens\TitleScreen.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
@@ -236,8 +237,9 @@
   <ItemGroup>
     <ClInclude Include="Classes\Actor.h" />
     <ClInclude Include="Classes\Graphics\Effect.h" />
+    <ClInclude Include="Classes\Graphics\Screens\HelpScreen.h" />
+    <ClInclude Include="Classes\Graphics\Screens\SettingsScreen.h" />
     <ClInclude Include="Globals.h" />
-    <ClInclude Include="Classes\Graphics\Screens\Screen.h" />
     <ClInclude Include="Classes\Graphics\ScreenManager.h" />
     <ClInclude Include="Classes\Graphics\Screens\TitleScreen.h" />
   </ItemGroup>

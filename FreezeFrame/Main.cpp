@@ -17,11 +17,12 @@ int main()
 	Clock dtClock;
 	while (window.isOpen())
 	{
-		Event event;
-		while (window.pollEvent(event))
+		Event e;
+		while (window.pollEvent(e))
 		{
-			if (event.type == Event::Closed || (event.type == Event::KeyPressed && event.key.code == Keyboard::Escape))
+			if (e.type == Event::Closed || (e.type == Event::KeyPressed && e.key.code == Keyboard::Escape))
 				window.close();
+			ScreenManager::GetInstance()->PollEvent(e);
 		}
 		Time dt = dtClock.restart();
 
