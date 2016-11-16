@@ -13,7 +13,7 @@ using namespace sf;
 int main()
 {
 	RenderWindow window(VideoMode(1280, 720), "Freeze Frame");
-	ScreenManager::GetInstance()->LoadScreens();	//This forces the screen manager to instantiate an instance of itself so that everything can load up
+	ScreenManager::GetInstance()->LoadScreens();
 	InputManager::GetInstance();
 
 	Clock dtClock;

@@ -5,7 +5,7 @@ TitleScreen::TitleScreen()
 {
 	if (!bgTexture.loadFromFile(ASSETS_ART_BACKGROUNDS_PATH "BG.png"))
 	{
-		cout << "ERROR (TitleScreen) : Failure to load Texture: " << ASSETS_ART_BACKGROUNDS_PATH << "BG.png";
+		cout << "ERROR (TitleScreen) : Failure to load Texture: " << ASSETS_ART_BACKGROUNDS_PATH << "BG.png" << endl;
 	}
 
 	bgSprite = Sprite(bgTexture);

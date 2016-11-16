@@ -5,7 +5,7 @@ SettingsScreen::SettingsScreen()
 {
 	if (!bgTexture.loadFromFile(ASSETS_ART_BACKGROUNDS_PATH "BG.png"))
 	{
-		cout << "ERROR (SettingsScreen) : Failure to load Texture: " << ASSETS_ART_BACKGROUNDS_PATH << "BG.png";
+		cout << "ERROR (SettingsScreen) : Failure to load Texture: " << ASSETS_ART_BACKGROUNDS_PATH << "BG.png" << endl;
 	}
 
 	bgSprite = Sprite(bgTexture);
