@@ -44,10 +44,12 @@
     <Input ID="0" Value="100">
       <Keyboard Value="72" />
       <Joystick Value="0" />
+      <Mouse Value="0" />
     </Input>
     <Input ID="0" Value="-100">
       <Keyboard Value="71" />
       <Joystick Value="0" />
+      <Mouse Value="1" />
     </Input>
     <Input ID="1" Value="100">
       <Keyboard Value="74" />

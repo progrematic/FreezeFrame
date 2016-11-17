@@ -154,6 +154,52 @@ void InputManager::PollEvent(Event e)
 			}
 		}
 	}
+	if (e.type == Event::MouseButtonPressed)
+	{
+		for (vector<ButtonInput>::iterator it = buttonInputs.begin(); it != buttonInputs.end(); it++)
+		{
+			if (it->mouseMapping == e.mouseButton.button && !it->pressed)
+			{
+				it->pressed = true;
+			}
+		}
+		for (vector<AxisInput>::iterator it = axisInputs.begin(); it != axisInputs.end(); it++)
+		{
+			if (it->mouseHighMapping == e.mouseButton.button && !it->highPressed)
+			{
+				it->highPressed = true;
+				it->value = AXIS_VALUE_HIGH;
+			}
+			else if (it->mouseLowMapping == e.mouseButton.button && !it->lowPressed)
+			{
+				it->lowPressed = true;
+				it->value = AXIS_VALUE_LOW;
+			}
+		}
+	}
+	else if (e.type == Event::MouseButtonReleased)
+	{
+		for (vector<ButtonInput>::iterator it = buttonInputs.begin(); it != buttonInputs.end(); it++)
+		{
+			if (it->mouseMapping == e.mouseButton.button && !it->released)
+			{
+				it->released = true;
+			}
+		}
+		for (vector<AxisInput>::iterator it = axisInputs.begin(); it != axisInputs.end(); it++)
+		{
+			if (it->mouseHighMapping == e.mouseButton.button && !it->highReleased)
+			{
+				it->highReleased = true;
+				it->value = 0;
+			}
+			else if (it->mouseLowMapping == e.mouseButton.button && !it->lowReleased)
+			{
+				it->lowReleased = true;
+				it->value = 0;
+			}
+		}
+	}
 }
 
 void InputManager::Update(float dt)
