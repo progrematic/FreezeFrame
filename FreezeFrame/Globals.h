@@ -12,4 +12,7 @@
 #define ASSETS_FONTS_PATH																			ASSETS_PATH "Fonts/"
 #define ASSETS_SHADERS_PATH																			ASSETS_PATH "Shaders/"
 
+#define CONFIG_PATH																					"Config/"
+#define CONFIG_IO_PATH																				CONFIG_PATH "IO/"
+
 #endif

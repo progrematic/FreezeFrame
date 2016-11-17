@@ -155,6 +155,7 @@
     <None Include="Assets\Shaders\pixelate.frag" />
     <None Include="Assets\Shaders\storm.vert" />
     <None Include="Assets\Shaders\wave.vert" />
+    <None Include="Config\IO\InputMapping.xml.old" />
     <None Include="Main.cpp.old" />
     <None Include="packages.config" />
     <None Include="SFML\lib\sfml-audio-d.pdb" />
@@ -175,6 +176,7 @@
     <ClCompile Include="Classes\Graphics\Screens\HelpScreen.cpp" />
     <ClCompile Include="Classes\Graphics\Screens\SettingsScreen.cpp" />
     <ClCompile Include="Classes\Graphics\Screens\TitleScreen.cpp" />
+    <ClCompile Include="Classes\IO\InputManager.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -239,14 +241,19 @@
     <ClInclude Include="Classes\Graphics\Effect.h" />
     <ClInclude Include="Classes\Graphics\Screens\HelpScreen.h" />
     <ClInclude Include="Classes\Graphics\Screens\SettingsScreen.h" />
+    <ClInclude Include="Classes\IO\InputManager.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Classes\Graphics\ScreenManager.h" />
     <ClInclude Include="Classes\Graphics\Screens\TitleScreen.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Config\IO\InputMapping.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\sfml-system.redist.2.4.0.0\build\native\sfml-system.redist.targets" Condition="Exists('..\packages\sfml-system.redist.2.4.0.0\build\native\sfml-system.redist.targets')" />
     <Import Project="..\packages\sfml-system.2.4.0.0\build\native\sfml-system.targets" Condition="Exists('..\packages\sfml-system.2.4.0.0\build\native\sfml-system.targets')" />
+    <Import Project="..\packages\pugixml.1.7.2\build\native\pugixml.targets" Condition="Exists('..\packages\pugixml.1.7.2\build\native\pugixml.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -254,5 +261,6 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\sfml-system.redist.2.4.0.0\build\native\sfml-system.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml-system.redist.2.4.0.0\build\native\sfml-system.redist.targets'))" />
     <Error Condition="!Exists('..\packages\sfml-system.2.4.0.0\build\native\sfml-system.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml-system.2.4.0.0\build\native\sfml-system.targets'))" />
+    <Error Condition="!Exists('..\packages\pugixml.1.7.2\build\native\pugixml.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\pugixml.1.7.2\build\native\pugixml.targets'))" />
   </Target>
 </Project>

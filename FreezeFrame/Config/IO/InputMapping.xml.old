@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<InputMapping>
+  <Buttons>
+    <Input ID="0">
+      <Keyboard Value="21" />
+      <Joystick Value="0" />
+    </Input>
+    <Input ID="1">
+      <Keyboard Value="2" />
+      <Joystick Value="1" />
+    </Input>
+    <Input ID="2">
+      <Keyboard Value="23" />
+      <Joystick Value="2" />
+    </Input>
+    <Input ID="3">
+      <Keyboard Value="25" />
+      <Joystick Value="3" />
+    </Input>
+    <Input ID="4">
+      <Keyboard Value="3" />
+      <Joystick Value="4" />
+    </Input>
+    <Input ID="5">
+      <Keyboard Value="5" />
+      <Joystick Value="5" />
+    </Input>
+    <Input ID="6">
+      <Keyboard Value="59" />
+      <Joystick Value="6" />
+    </Input>
+    <Input ID="7">
+      <Keyboard Value="58" />
+      <Joystick Value="7" />
+    </Input>
+    <Input ID="8">
+      <Joystick Value="8" />
+    </Input>
+    <Input ID="9">
+      <Joystick Value="9" />
+    </Input>
+  </Buttons>
+  <Axes>
+    <Input ID="0" Value="100">
+      <Keyboard Value="72" />
+      <Joystick Value="0" />
+    </Input>
+    <Input ID="0" Value="-100">
+      <Keyboard Value="71" />
+      <Joystick Value="0" />
+    </Input>
+    <Input ID="1" Value="100">
+      <Keyboard Value="74" />
+      <Joystick Value="1" />
+    </Input>
+    <Input ID="1" Value="-100">
+      <Keyboard Value="73" />
+      <Joystick Value="1" />
+    </Input>
+    <Input ID="2" Value="100">
+      <Keyboard Value="18" />
+      <Joystick Value="2" />
+    </Input>
+    <Input ID="2" Value="-100">
+      <Keyboard Value="6" />
+      <Joystick Value="2" />
+    </Input>
+    <Input ID="3" Value="100">
+      <Joystick Value="3" />
+    </Input>
+    <Input ID="3" Value="-100">
+      <Joystick Value="3" />
+    </Input>
+    <Input ID="4" Value="100">
+      <Joystick Value="4" />
+    </Input>
+    <Input ID="4" Value="-100">
+      <Joystick Value="4" />
+    </Input>
+    <Input ID="5" Value="100">
+      <Joystick Value="6" />
+    </Input>
+    <Input ID="5" Value="-100">
+      <Joystick Value="6" />
+    </Input>
+    <Input ID="6" Value="100">
+      <Joystick Value="7" />
+    </Input>
+    <Input ID="6" Value="-100">
+      <Joystick Value="7" />
+    </Input>
+  </Axes>
+</InputMapping>

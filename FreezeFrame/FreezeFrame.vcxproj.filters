@@ -35,6 +35,7 @@
     <None Include="Assets\Shaders\storm.vert" />
     <None Include="Assets\Shaders\wave.vert" />
     <None Include="Main.cpp.old" />
+    <None Include="Config\IO\InputMapping.xml.old" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -56,6 +57,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Graphics\Screens\SettingsScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\IO\InputManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -162,5 +166,11 @@
     <ClInclude Include="Classes\Graphics\Screens\SettingsScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\IO\InputManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Config\IO\InputMapping.xml" />
   </ItemGroup>
 </Project>
