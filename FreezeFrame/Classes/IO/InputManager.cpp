@@ -44,19 +44,19 @@ void InputManager::PollEvent(Event e)
 	{
 		for (vector<ButtonInput>::iterator it = buttonInputs.begin(); it != buttonInputs.end(); it++)
 		{
-			if (it->keyboardMapping == e.key.code && !it->pressed)
+			if (it->keyboardMapping == e.key.code && !it->pressed && !it->down)
 			{
 				it->pressed = true;
 			}
 		}
 		for (vector<AxisInput>::iterator it = axisInputs.begin(); it != axisInputs.end(); it++)
 		{
-			if (it->keyboardHighMapping == e.key.code && !it->highPressed)
+			if (it->keyboardHighMapping == e.key.code && !it->highPressed && !it->highDown)
 			{
 				it->highPressed = true;
 				it->value = AXIS_VALUE_HIGH;
 			}
-			else if (it->keyboardLowMapping == e.key.code && !it->lowPressed)
+			else if (it->keyboardLowMapping == e.key.code && !it->lowPressed && !it->lowDown)
 			{
 				it->lowPressed = true;
 				it->value = AXIS_VALUE_LOW;
@@ -90,19 +90,19 @@ void InputManager::PollEvent(Event e)
 	{
 		for (vector<ButtonInput>::iterator it = buttonInputs.begin(); it != buttonInputs.end(); it++)
 		{
-			if (it->joystickMapping == e.joystickButton.button && !it->pressed)
+			if (it->joystickMapping == e.joystickButton.button && !it->pressed && !it->down)
 			{
 				it->pressed = true;
 			}
 		}
 		for (vector<AxisInput>::iterator it = axisInputs.begin(); it != axisInputs.end(); it++)
 		{
-			if (it->joystickHighMapping == e.joystickButton.button && !it->highPressed)
+			if (it->joystickHighMapping == e.joystickButton.button && !it->highPressed && !it->highDown)
 			{
 				it->highPressed = true;
 				it->value = AXIS_VALUE_HIGH;
 			}
-			else if (it->joystickLowMapping == e.joystickButton.button && !it->lowPressed)
+			else if (it->joystickLowMapping == e.joystickButton.button && !it->lowPressed && !it->lowDown)
 			{
 				it->lowPressed = true;
 				it->value = AXIS_VALUE_LOW;
@@ -158,19 +158,19 @@ void InputManager::PollEvent(Event e)
 	{
 		for (vector<ButtonInput>::iterator it = buttonInputs.begin(); it != buttonInputs.end(); it++)
 		{
-			if (it->mouseMapping == e.mouseButton.button && !it->pressed)
+			if (it->mouseMapping == e.mouseButton.button && !it->pressed && !it->down)
 			{
 				it->pressed = true;
 			}
 		}
 		for (vector<AxisInput>::iterator it = axisInputs.begin(); it != axisInputs.end(); it++)
 		{
-			if (it->mouseHighMapping == e.mouseButton.button && !it->highPressed)
+			if (it->mouseHighMapping == e.mouseButton.button && !it->highPressed && !it->highDown)
 			{
 				it->highPressed = true;
 				it->value = AXIS_VALUE_HIGH;
 			}
-			else if (it->mouseLowMapping == e.mouseButton.button && !it->lowPressed)
+			else if (it->mouseLowMapping == e.mouseButton.button && !it->lowPressed && !it->lowDown)
 			{
 				it->lowPressed = true;
 				it->value = AXIS_VALUE_LOW;
@@ -204,16 +204,6 @@ void InputManager::PollEvent(Event e)
 
 void InputManager::Update(float dt)
 {
-	stringstream ss;
-	ss << "L Horizontal: " << axisInputs[AxisID::LHorizontal].value << endl;
-	ss << "High Pressed: " << axisInputs[AxisID::LHorizontal].highPressed << endl;
-	ss << "High Down: " << axisInputs[AxisID::LHorizontal].highDown << endl;
-	ss << "High Released: " << axisInputs[AxisID::LHorizontal].highReleased << endl;
-	ss << "Low Pressed: " << axisInputs[AxisID::LHorizontal].lowPressed << endl;
-	ss << "Low Down: " << axisInputs[AxisID::LHorizontal].lowDown << endl;
-	ss << "Low Released: " << axisInputs[AxisID::LHorizontal].lowReleased << endl;
-	debugText.setString(ss.str());
-
 	UpdateInput();
 }
 
