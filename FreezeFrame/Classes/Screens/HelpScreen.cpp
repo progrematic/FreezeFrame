@@ -1,5 +1,5 @@
 #include "HelpScreen.h"
-#include "../../../Globals.h"
+#include "../../Globals.h"
 
 HelpScreen::HelpScreen()
 {

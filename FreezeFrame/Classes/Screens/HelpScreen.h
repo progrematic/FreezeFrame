@@ -1,20 +1,19 @@
-#ifndef FF_TITLESCREEN
-#define FF_TITLESCREEN
+#ifndef FF_HELPSCREEN
+#define FF_HELPSCREEN
 
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <vector>
-#include "../ScreenManager.h"
-#include "../Effect.h"
+#include "../Managers/ScreenManager.h"
 
 using namespace std;
 using namespace sf;
 
-class TitleScreen : public Screen
+class HelpScreen : public Screen
 {
 public:
-	TitleScreen();
-	~TitleScreen();
+	HelpScreen();
+	~HelpScreen();
 
 	void Load() override;
 	void PollEvent(Event e) override;
@@ -22,7 +21,7 @@ public:
 	void Draw(RenderWindow* window) override;
 	void Unload() override;
 
-	ScreenID GetScreenID() { return ScreenID::TitleScreen; }
+	ScreenID GetScreenID() { return ScreenID::HelpScreen; }
 private:
 	Texture bgTexture;
 	Sprite bgSprite;

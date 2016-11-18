@@ -1,5 +1,5 @@
 #include "TitleScreen.h"
-#include "../../../Globals.h"
+#include "../../Globals.h"
 
 TitleScreen::TitleScreen()
 {

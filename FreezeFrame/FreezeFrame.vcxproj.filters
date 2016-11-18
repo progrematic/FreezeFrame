@@ -47,19 +47,22 @@
     <ClCompile Include="Classes\Graphics\Effect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Graphics\ScreenManager.cpp">
+    <ClCompile Include="Classes\Screens\CustomizeInputScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Graphics\Screens\TitleScreen.cpp">
+    <ClCompile Include="Classes\Screens\HelpScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Graphics\Screens\HelpScreen.cpp">
+    <ClCompile Include="Classes\Screens\SettingsScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Graphics\Screens\SettingsScreen.cpp">
+    <ClCompile Include="Classes\Screens\TitleScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\IO\InputManager.cpp">
+    <ClCompile Include="Classes\Managers\ScreenManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Managers\InputManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -151,22 +154,25 @@
     <ClInclude Include="Classes\Graphics\Effect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Graphics\ScreenManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Graphics\Screens\TitleScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Graphics\Screens\HelpScreen.h">
+    <ClInclude Include="Classes\Screens\CustomizeInputScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Graphics\Screens\SettingsScreen.h">
+    <ClInclude Include="Classes\Screens\HelpScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\IO\InputManager.h">
+    <ClInclude Include="Classes\Screens\SettingsScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Screens\TitleScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Managers\ScreenManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Managers\InputManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

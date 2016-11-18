@@ -1,5 +1,5 @@
 #include "InputManager.h"
-#include "../../Classes/Graphics/ScreenManager.h"
+#include "ScreenManager.h"
 
 #include <pugixml.hpp>
 using namespace pugi;

@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <vector>
-#include "../ScreenManager.h"
+#include "../Managers/ScreenManager.h"
 
 using namespace std;
 using namespace sf;

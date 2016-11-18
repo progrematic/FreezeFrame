@@ -2,8 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
-#include "Classes/Graphics/ScreenManager.h"
-#include "Classes/IO/InputManager.h"
+#include "Classes/Managers/ScreenManager.h"
+#include "Classes/Managers/InputManager.h"
 
 using namespace std;
 using namespace sf;

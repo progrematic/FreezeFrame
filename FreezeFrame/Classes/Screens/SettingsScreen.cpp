@@ -1,5 +1,5 @@
 #include "SettingsScreen.h"
-#include "../../../Globals.h"
+#include "../../Globals.h"
 
 SettingsScreen::SettingsScreen()
 {
@@ -27,6 +27,10 @@ void SettingsScreen::PollEvent(Event e)
 	if (e.type == Event::KeyPressed && e.key.code == Keyboard::BackSpace)
 	{
 		ScreenManager::GetInstance()->PopScreen();
+	}
+	else if (e.type == Event::KeyPressed && e.key.code == Keyboard::Return)
+	{
+		ScreenManager::GetInstance()->PushScreen(ScreenID::CustomizeInputScreen);
 	}
 }
 

@@ -18,6 +18,7 @@ public:
 		TitleScreen,
 		SettingsScreen,
 		HelpScreen,
+		CustomizeInputScreen,
 		ScreenIDMax
 	};
 

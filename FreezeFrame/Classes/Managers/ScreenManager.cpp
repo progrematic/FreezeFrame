@@ -1,8 +1,9 @@
 #include "ScreenManager.h"
 
-#include "Screens/TitleScreen.h"
-#include "Screens/SettingsScreen.h"
-#include "Screens/HelpScreen.h"
+#include "../Screens/TitleScreen.h"
+#include "../Screens/SettingsScreen.h"
+#include "../Screens/HelpScreen.h"
+#include "../Screens/CustomizeInputScreen.h"
 
 ScreenManager* ScreenManager::instance = NULL;
 
@@ -42,6 +43,7 @@ void ScreenManager::LoadScreens()
 	screens.push_back(new TitleScreen());
 	screens.push_back(new SettingsScreen());
 	screens.push_back(new HelpScreen());
+	screens.push_back(new CustomizeInputScreen());
 	screenStack.push_back(Screen::ScreenID::TitleScreen);
 
 	GetCurrentScreen()->Load();
