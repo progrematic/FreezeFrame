@@ -24,19 +24,20 @@ void SettingsScreen::Load()
 
 void SettingsScreen::PollEvent(Event e)
 {
-	if (e.type == Event::KeyPressed && e.key.code == Keyboard::BackSpace)
-	{
-		ScreenManager::GetInstance()->PopScreen();
-	}
-	else if (e.type == Event::KeyPressed && e.key.code == Keyboard::Return)
-	{
-		ScreenManager::GetInstance()->PushScreen(ScreenID::CustomizeInputScreen);
-	}
+
 }
 
 void SettingsScreen::Update(float dt)
 {
-
+	if (InputManager::GetInstance()->IsButtonPressed(0, InputManager::InputID::B))
+	{
+		ScreenManager::GetInstance()->PopScreen();
+		return;
+	}
+	if (InputManager::GetInstance()->IsButtonPressed(0, InputManager::InputID::A))
+	{
+		ScreenManager::GetInstance()->PushScreen(ScreenID::CustomizeInputScreen);
+	}
 }
 
 void SettingsScreen::Draw(RenderWindow* window)

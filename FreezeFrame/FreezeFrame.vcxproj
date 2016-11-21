@@ -178,6 +178,8 @@
     <ClCompile Include="Classes\Screens\SettingsScreen.cpp" />
     <ClCompile Include="Classes\Screens\TitleScreen.cpp" />
     <ClCompile Include="Classes\Managers\InputManager.cpp" />
+    <ClCompile Include="Classes\UI\Menu.cpp" />
+    <ClCompile Include="Classes\UI\MenuItem.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +246,8 @@
     <ClInclude Include="Classes\Screens\HelpScreen.h" />
     <ClInclude Include="Classes\Screens\SettingsScreen.h" />
     <ClInclude Include="Classes\Managers\InputManager.h" />
+    <ClInclude Include="Classes\UI\Menu.h" />
+    <ClInclude Include="Classes\UI\MenuItem.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Classes\Managers\ScreenManager.h" />
     <ClInclude Include="Classes\Screens\TitleScreen.h" />

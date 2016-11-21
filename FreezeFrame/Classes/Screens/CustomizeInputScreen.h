@@ -3,6 +3,7 @@
 
 #include "../Managers/ScreenManager.h"
 #include "../Managers/InputManager.h"
+#include "../UI/Menu.h"
 
 class CustomizeInputScreen : public Screen
 {
@@ -20,6 +21,7 @@ public:
 private:
 	Texture bgTexture;
 	Sprite bgSprite;
+	Menu menu;
 
 	Text titleText;
 };

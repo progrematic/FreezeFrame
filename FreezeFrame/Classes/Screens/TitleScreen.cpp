@@ -24,29 +24,15 @@ void TitleScreen::Load()
 
 void TitleScreen::PollEvent(Event e)
 {
-	if (e.type == Event::KeyPressed)
-	{
-		switch (e.key.code)
-		{
-		case Keyboard::BackSpace:
-			ScreenManager::GetInstance()->PopScreen();
-			break;
-		case Keyboard::Return:
-			ScreenManager::GetInstance()->PushScreen(Screen::ScreenID::SettingsScreen);
-			break;
-		case Keyboard::Space:
-			ScreenManager::GetInstance()->PushScreen(Screen::ScreenID::HelpScreen);
-			break;
-		case Keyboard::Tab:
-			ScreenManager::GetInstance()->PushScreen(Screen::ScreenID::ScreenIDMax);
-			break;
-		}
-	}
+
 }
 
 void TitleScreen::Update(float dt)
 {
-
+	if (InputManager::GetInstance()->IsButtonPressed(0, InputManager::InputID::A))
+	{
+		ScreenManager::GetInstance()->PushScreen(Screen::ScreenID::SettingsScreen);
+	}
 }
 
 void TitleScreen::Draw(RenderWindow* window)

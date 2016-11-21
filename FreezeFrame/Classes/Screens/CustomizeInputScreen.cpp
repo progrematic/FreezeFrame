@@ -19,29 +19,41 @@ CustomizeInputScreen::~CustomizeInputScreen()
 
 void CustomizeInputScreen::Load()
 {
+	MenuItem* test = new MenuItem();
+	test->GetText().setString("Test Menu Item");
+	menu.AddMenuItem(test);
 
+	MenuItem* test2 = new MenuItem();
+	test2->GetText().setString("Test Menu Item 2");
+	menu.AddMenuItem(test2);
+
+	menu.SetPosition(Vector2f(150, 150));
 }
 
 void CustomizeInputScreen::PollEvent(Event e)
 {
-	if (e.type == Event::KeyPressed && e.key.code == Keyboard::BackSpace)
-	{
-		ScreenManager::GetInstance()->PopScreen();
-	}
+
 }
 
 void CustomizeInputScreen::Update(float dt)
 {
+	if (InputManager::GetInstance()->IsButtonPressed(0, InputManager::InputID::B))
+	{
+		ScreenManager::GetInstance()->PopScreen();
+		return;
+	}
 
+	menu.Update(dt);
 }
 
 void CustomizeInputScreen::Draw(RenderWindow* window)
 {
 	window->draw(bgSprite);
 	window->draw(titleText);
+	menu.Draw(window);
 }
 
 void CustomizeInputScreen::Unload()
 {
-
+	menu.ClearMenuItems();
 }

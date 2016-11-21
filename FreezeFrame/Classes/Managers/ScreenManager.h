@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "../../Globals.h"
+#include "../Managers/InputManager.h"
 
 #include <iostream>
 #include <vector>

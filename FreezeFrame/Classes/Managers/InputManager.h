@@ -50,37 +50,23 @@ public:
 	void Update(float dt);
 	void Draw(RenderWindow* window);
 
+	bool IsButtonPressed(int playerId, InputID inputId);
+	bool IsButtonDown(int playerId, InputID inputId);
+	bool IsButtonReleased(int playerId, InputID inputId);
+	bool IsHighAxisButtonPressed(int playerId, AxisID inputId);
+	bool IsHighAxisButtonDown(int playerId, AxisID inputId);
+	bool IsHighAxisButtonReleased(int playerId, AxisID inputId);
+	bool IsLowAxisButtonPressed(int playerId, AxisID inputId);
+	bool IsLowAxisButtonDown(int playerId, AxisID inputId);
+	bool IsLowAxisButtonReleased(int playerId, AxisID inputId);
+	float GetAxisValue(int playerId, AxisID axisId);
+
 private:
 	struct ButtonInput
 	{
-		ButtonInput() 
-		{
-			id = InputID::InputIDMax;
-			keyboardMapping = -1;
-			joystickMapping = -1;
-			mouseMapping = -1;
-
-			pressed = false;
-			down = false;
-			released = false;
-		}
-
-		string ToString()
-		{
-			stringstream ret;
-			ret << "Button Input: " << id << endl;
-			ret << " - Keyboard: " << keyboardMapping << endl;
-			ret << " - Joystick: " << joystickMapping << endl;
-			ret << " - Mouse: " << mouseMapping;
-			return ret.str();
-		}
-
-		string GetStatus()
-		{
-			stringstream ret;
-			ret << "Button Input " << id << ": " << pressed << "::" << down << "::" << released;
-			return ret.str();
-		}
+		ButtonInput();
+		string ToString();
+		string GetStatus();
 
 		InputID id;
 		int keyboardMapping;
@@ -94,44 +80,9 @@ private:
 
 	struct AxisInput
 	{
-		AxisInput()
-		{
-			id = AxisID::AxisIDMax;
-			keyboardHighMapping = -1;
-			keyboardLowMapping = -1;
-			joystickHighMapping = -1;
-			joystickLowMapping = -1;
-			mouseHighMapping = -1;
-			mouseLowMapping = -1;
-
-			highPressed = false;
-			lowPressed = false;
-			highDown = false;
-			lowDown = false;
-			highReleased = false;
-			lowReleased = false;
-			value = 0;
-		}
-
-		string ToString()
-		{
-			stringstream ret;
-			ret << "Axis Input: " << id << endl;
-			ret << " - Keyboard High: " << keyboardHighMapping << endl;
-			ret << " - Keyboard Low: " << keyboardLowMapping << endl;
-			ret << " - Joystick High: " << joystickHighMapping << endl;
-			ret << " - Joystick Low: " << joystickLowMapping << endl;
-			ret << " - Mouse High: " << mouseHighMapping << endl;
-			ret << " - Mouse Low: " << mouseLowMapping;
-			return ret.str();
-		}
-
-		string GetStatus()
-		{
-			stringstream ret;
-			ret << "Axis Input " << id << ": " << value << endl << "\tHIGH: " << highPressed << "::" << highDown << "::" << highReleased << "\tLOW:  " << lowPressed << "::" << lowDown << "::" << lowReleased;
-			return ret.str();
-		}
+		AxisInput();
+		string ToString();
+		string GetStatus();
 
 		AxisID id;
 		int keyboardLowMapping;
@@ -150,14 +101,20 @@ private:
 		float value;
 	};
 
+	struct PlayerInput
+	{
+		vector<ButtonInput> buttonInputs;
+		vector<AxisInput> axisInputs;
+	};
+
 	static InputManager* instance;
 
 	void LoadInputConfig();
 	void SaveInputConfig();
 	void UpdateInput();
 
-	vector<ButtonInput> buttonInputs;
-	vector<AxisInput> axisInputs;
+	vector <PlayerInput> playerInputs;
+
 	Text debugText;
 };
 

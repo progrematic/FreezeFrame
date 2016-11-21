@@ -24,15 +24,16 @@ void HelpScreen::Load()
 
 void HelpScreen::PollEvent(Event e)
 {
-	if (e.type == Event::KeyPressed && e.key.code == Keyboard::BackSpace)
-	{
-		ScreenManager::GetInstance()->PopScreen();
-	}
+
 }
 
 void HelpScreen::Update(float dt)
 {
-
+	if (InputManager::GetInstance()->IsButtonPressed(0, InputManager::InputID::B))
+	{
+		ScreenManager::GetInstance()->PopScreen();
+		return;
+	}
 }
 
 void HelpScreen::Draw(RenderWindow* window)
