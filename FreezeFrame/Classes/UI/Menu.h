@@ -20,6 +20,7 @@ public:
 	void Draw(RenderWindow* window);
 
 	void SetPosition(Vector2f pos);
+	void SetItemSeparation(float _itemSeparation);
 	void ClearMenuItems();
 
 private:
@@ -30,6 +31,7 @@ private:
 
 	Vector2f position;
 	Vector2f size;
+	float itemSeparation;
 };
 
 #endif

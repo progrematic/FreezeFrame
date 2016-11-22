@@ -13,6 +13,7 @@ using namespace sf;
 int main()
 {
 	RenderWindow window(VideoMode(1280, 720), "Freeze Frame");
+	ScreenManager::GetInstance()->SetWindow(&window);
 	ScreenManager::GetInstance()->LoadScreens();
 	InputManager::GetInstance();
 

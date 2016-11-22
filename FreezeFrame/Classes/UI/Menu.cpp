@@ -3,6 +3,7 @@
 Menu::Menu()
 {
 	shouldUpdateArrangement = true;
+	itemSeparation = 10;
 }
 
 Menu::~Menu()
@@ -46,11 +47,17 @@ void Menu::SetPosition(Vector2f pos)
 	UpdateArrangement();
 }
 
+void Menu::SetItemSeparation(float _itemSeparation)
+{
+	itemSeparation = _itemSeparation;
+	UpdateArrangement();
+}
+
 void Menu::ClearMenuItems()
 {
 	for (vector<MenuItem*>::iterator it = menuItems.begin(); it != menuItems.end(); it++)
 	{
-		free(*it);
+		delete(*it);
 	}
 	menuItems.clear();
 }
@@ -60,7 +67,7 @@ void Menu::UpdateArrangement()
 	int i = 0;
 	for (vector<MenuItem*>::iterator it = menuItems.begin(); it != menuItems.end(); it++)
 	{
-		(*it)->SetPosition(Vector2f(position.x, position.y + (i * (*it)->GetBackground().getTextureRect().height)));
+		(*it)->SetPosition(Vector2f(position.x, position.y + (i * (*it)->GetBackground().getTextureRect().height) + (i * itemSeparation)));
 		i++;
 	}
 

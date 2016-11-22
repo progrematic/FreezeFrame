@@ -102,6 +102,16 @@ void ScreenManager::PopScreen()
 	}
 }
 
+void ScreenManager::SetWindow(RenderWindow* _window)
+{
+	window = _window;
+}
+
+RenderWindow* ScreenManager::GetWindow()
+{
+	return window;
+}
+
 Font& ScreenManager::GetFont()
 {
 	return gameFont;

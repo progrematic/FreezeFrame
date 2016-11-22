@@ -3,9 +3,9 @@
 
 CustomizeInputScreen::CustomizeInputScreen()
 {
-	if (!bgTexture.loadFromFile(ASSETS_ART_BACKGROUNDS_PATH "BG.png"))
+	if (!bgTexture.loadFromFile(ASSETS_ART_BACKGROUNDS_PATH "TitanSouls.jpg"))
 	{
-		cout << "ERROR (CustomizeInputScreen) : Failure to load Texture: " << ASSETS_ART_BACKGROUNDS_PATH << "BG.png" << endl;
+		cout << "ERROR (CustomizeInputScreen) : Failure to load Texture: " << ASSETS_ART_BACKGROUNDS_PATH << "TitanSouls.jpg" << endl;
 	}
 
 	bgSprite = Sprite(bgTexture);
@@ -26,6 +26,14 @@ void CustomizeInputScreen::Load()
 	MenuItem* test2 = new MenuItem();
 	test2->GetText().setString("Test Menu Item 2");
 	menu.AddMenuItem(test2);
+
+	MenuItem* test3 = new MenuItem();
+	test3->GetText().setString("Test Menu Item 3");
+	menu.AddMenuItem(test3);
+
+	MenuItem* test4 = new MenuItem();
+	test4->GetText().setString("Test Menu Item 4");
+	menu.AddMenuItem(test4);
 
 	menu.SetPosition(Vector2f(150, 150));
 }

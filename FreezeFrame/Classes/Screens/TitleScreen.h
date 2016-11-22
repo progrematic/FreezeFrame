@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 #include "../Managers/ScreenManager.h"
+#include "../UI/Menu.h"
+#include "../Graphics/Effect.h"
 
 using namespace std;
 using namespace sf;
@@ -23,10 +25,21 @@ public:
 
 	ScreenID GetScreenID() { return ScreenID::TitleScreen; }
 private:
+	enum State
+	{
+		PressStart,
+		MainMenu
+	};
+
 	Texture bgTexture;
 	Sprite bgSprite;
 
 	Text titleText;
+	Text pressStartText;
+	Effect pressStartFadeEffect;
+
+	Menu mainMenu;
+	State state;
 };
 
 #endif

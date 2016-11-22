@@ -3,9 +3,9 @@
 
 SettingsScreen::SettingsScreen()
 {
-	if (!bgTexture.loadFromFile(ASSETS_ART_BACKGROUNDS_PATH "BG.png"))
+	if (!bgTexture.loadFromFile(ASSETS_ART_BACKGROUNDS_PATH "TitanSouls.jpg"))
 	{
-		cout << "ERROR (SettingsScreen) : Failure to load Texture: " << ASSETS_ART_BACKGROUNDS_PATH << "BG.png" << endl;
+		cout << "ERROR (SettingsScreen) : Failure to load Texture: " << ASSETS_ART_BACKGROUNDS_PATH << "TitanSouls.jpg" << endl;
 	}
 
 	bgSprite = Sprite(bgTexture);

@@ -52,6 +52,8 @@ public:
 	void PushScreen(Screen::ScreenID screen);
 	void PopScreen();
 
+	void SetWindow(RenderWindow* _window);
+	RenderWindow* GetWindow();
 	Font& GetFont();
 
 private:
@@ -63,6 +65,7 @@ private:
 	vector<Screen*> screens;
 	vector<Screen::ScreenID> screenStack;
 
+	RenderWindow* window;
 	Font gameFont;
 };
 
