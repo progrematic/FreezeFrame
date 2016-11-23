@@ -14,7 +14,8 @@ TitleScreen::TitleScreen()
 	pressStartText = Text("Press Start", ScreenManager::GetInstance()->GetFont(), 75);
 	pressStartText.setFillColor(Color(0, 0, 0, 255));
 
-	Vector2u windowSize = ScreenManager::GetInstance()->GetWindow()->getSize();
+	Vector2u windowSize = ScreenManager::GetInstance()->GetWindowSize();
+	mainMenu.SetPosition(Vector2f(((float)windowSize.x / 2), (float)windowSize.y / 2));
 	titleText.setPosition((windowSize.x - titleText.getLocalBounds().width) / 2, 0);
 	pressStartText.setPosition((windowSize.x - pressStartText.getLocalBounds().width) / 2, windowSize.y - pressStartText.getLocalBounds().height - 50);
 	pressStartFadeEffect = Effect(0.5f, 5, 0, 0.5f);
@@ -50,8 +51,14 @@ void TitleScreen::Load()
 	test5->GetText().setString("Exit");
 	mainMenu.AddMenuItem(test5);
 
-	Vector2u windowSize = ScreenManager::GetInstance()->GetWindow()->getSize();
-	mainMenu.SetPosition(Vector2f(((float)(windowSize.x - test->GetBackground().getTextureRect().width) / 2), (float)windowSize.y / 2));
+	switch (state)
+	{
+	case State::PressStart:
+		{
+			mainMenu.SetVisible(false);
+			break;
+		}
+	}
 }
 
 void TitleScreen::PollEvent(Event e)
@@ -72,6 +79,7 @@ void TitleScreen::Update(float dt)
 				Color pressStartTextColor = pressStartText.getFillColor();
 				pressStartTextColor.a = 0;
 				pressStartText.setFillColor(pressStartTextColor);
+				mainMenu.SetVisible(true);
 				state = State::MainMenu;
 			}
 			break;

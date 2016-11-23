@@ -54,6 +54,7 @@ public:
 
 	void SetWindow(RenderWindow* _window);
 	RenderWindow* GetWindow();
+	Vector2u GetWindowSize();
 	Font& GetFont();
 
 private:

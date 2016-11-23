@@ -39,6 +39,12 @@ Text& MenuItem::GetText()
 	return text;
 }
 
+void MenuItem::SetVisible(bool visible)
+{
+	background.setColor(Color(255, 255, 255, visible ? 255 : 0));
+	text.setFillColor(Color(255, 255, 255, visible ? 255 : 0));
+}
+
 void MenuItem::SetPosition(Vector2f pos)
 {
 	background.setPosition(pos);

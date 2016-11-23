@@ -112,6 +112,11 @@ RenderWindow* ScreenManager::GetWindow()
 	return window;
 }
 
+Vector2u ScreenManager::GetWindowSize()
+{
+	return window->getSize();
+}
+
 Font& ScreenManager::GetFont()
 {
 	return gameFont;

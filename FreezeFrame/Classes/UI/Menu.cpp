@@ -41,6 +41,14 @@ void Menu::Draw(RenderWindow* window)
 	}
 }
 
+void Menu::SetVisible(bool visible)
+{
+	for (vector<MenuItem*>::iterator it = menuItems.begin(); it != menuItems.end(); it++)
+	{
+		(*it)->SetVisible(visible);
+	}
+}
+
 void Menu::SetPosition(Vector2f pos)
 {
 	position = pos;
@@ -67,7 +75,7 @@ void Menu::UpdateArrangement()
 	int i = 0;
 	for (vector<MenuItem*>::iterator it = menuItems.begin(); it != menuItems.end(); it++)
 	{
-		(*it)->SetPosition(Vector2f(position.x, position.y + (i * (*it)->GetBackground().getTextureRect().height) + (i * itemSeparation)));
+		(*it)->SetPosition(Vector2f(position.x - ((*it)->GetBackground().getTextureRect().width / 2), position.y + (i * (*it)->GetBackground().getTextureRect().height) + (i * itemSeparation)));
 		i++;
 	}
 

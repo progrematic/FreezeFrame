@@ -17,6 +17,7 @@ public:
 	void Update(float dt);
 	void Draw(RenderWindow* window);
 
+	void SetVisible(bool visible);
 	void SetPosition(Vector2f pos);
 
 private:

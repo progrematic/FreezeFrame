@@ -19,6 +19,7 @@ public:
 	void Update(float dt);
 	void Draw(RenderWindow* window);
 
+	void SetVisible(bool visible);
 	void SetPosition(Vector2f pos);
 	void SetItemSeparation(float _itemSeparation);
 	void ClearMenuItems();
