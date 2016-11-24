@@ -18,7 +18,9 @@ public:
 	void PollEvent(Event e);
 	void Update(float dt);
 	void Draw(RenderWindow* window);
-
+	
+	void SetSelected(bool _selected);
+	void SetSelectedItemIndex(int _selectedItemIndex);
 	void SetVisible(bool visible);
 	void SetPosition(Vector2f pos);
 	void SetItemSeparation(float _itemSeparation);
@@ -28,6 +30,8 @@ private:
 	void UpdateArrangement();
 
 	vector<MenuItem*> menuItems;
+	int selectedItemIndex;
+	bool selected;
 	bool shouldUpdateArrangement;
 
 	Vector2f position;

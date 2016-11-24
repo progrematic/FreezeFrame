@@ -51,6 +51,8 @@ void TitleScreen::Load()
 	test5->GetText().setString("Exit");
 	mainMenu.AddMenuItem(test5);
 
+	mainMenu.SetSelectedItemIndex(0);
+
 	switch (state)
 	{
 	case State::PressStart:

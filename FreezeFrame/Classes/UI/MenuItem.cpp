@@ -1,6 +1,9 @@
 #include "MenuItem.h"
 #include "../Managers/ScreenManager.h"
 
+#define SELECTED_X_SCALE 1.1f
+#define SELECTED_Y_SCALE 1.1f
+
 MenuItem::MenuItem()
 {
 	if (!texture.loadFromFile(ASSETS_ART_UI_PATH "ButtonBackground.png"))
@@ -10,6 +13,7 @@ MenuItem::MenuItem()
 	}
 	background = Sprite(texture);
 	text = Text("Menu Item", ScreenManager::GetInstance()->GetFont(), 40);
+	selected = false;
 }
 
 void MenuItem::SetBackground(Texture _texture)
@@ -27,6 +31,30 @@ void MenuItem::Draw(RenderWindow* window)
 {
 	window->draw(background);
 	window->draw(text);
+}
+
+void MenuItem::Select()
+{
+	if (!selected)
+	{
+		selected = true;
+		background.setScale(SELECTED_X_SCALE, SELECTED_Y_SCALE);
+		float widthDiff  = background.getTextureRect().width  * (SELECTED_X_SCALE - 1);
+		float heightDiff = background.getTextureRect().height * (SELECTED_Y_SCALE - 1);
+		background.move(-widthDiff/2, -heightDiff/2);
+	}
+}
+
+void MenuItem::Deselect()
+{
+	if (selected)
+	{
+		selected = false;
+		background.setScale(1, 1);
+		float widthDiff = background.getTextureRect().width  * (SELECTED_X_SCALE - 1);
+		float heightDiff = background.getTextureRect().height * (SELECTED_Y_SCALE - 1);
+		background.move(widthDiff / 2, heightDiff / 2);
+	}
 }
 
 Sprite& MenuItem::GetBackground()
@@ -50,4 +78,10 @@ void MenuItem::SetPosition(Vector2f pos)
 	background.setPosition(pos);
 	float textOffset = (background.getTextureRect().width - text.getLocalBounds().width) / 2;
 	text.setPosition(pos + Vector2f(textOffset, 0));
+	if (selected)
+	{
+		float widthDiff = background.getTextureRect().width  * (SELECTED_X_SCALE - 1);
+		float heightDiff = background.getTextureRect().height * (SELECTED_Y_SCALE - 1);
+		background.move(-widthDiff / 2, -heightDiff / 2);
+	}
 }

@@ -17,6 +17,9 @@ public:
 	void Update(float dt);
 	void Draw(RenderWindow* window);
 
+	void Select();
+	void Deselect();
+
 	void SetVisible(bool visible);
 	void SetPosition(Vector2f pos);
 
@@ -24,6 +27,7 @@ private:
 	Texture texture;
 	Sprite background;
 	Text text;
+	bool selected;
 };
 
 #endif

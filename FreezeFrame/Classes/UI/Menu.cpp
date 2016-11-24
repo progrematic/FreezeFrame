@@ -1,9 +1,11 @@
 #include "Menu.h"
+#include "../Managers/InputManager.h"
 
 Menu::Menu()
 {
 	shouldUpdateArrangement = true;
 	itemSeparation = 10;
+	selectedItemIndex = 0;
 }
 
 Menu::~Menu()
@@ -31,6 +33,15 @@ void Menu::Update(float dt)
 	{
 		(*it)->Update(dt);
 	}
+
+	if (InputManager::GetInstance()->IsHighAxisButtonPressed(0, InputManager::AxisID::LVertical))
+	{
+		SetSelectedItemIndex(selectedItemIndex == (menuItems.size() - 1) ? 0 : selectedItemIndex + 1);
+	}
+	if (InputManager::GetInstance()->IsLowAxisButtonPressed(0, InputManager::AxisID::LVertical))
+	{
+		SetSelectedItemIndex(selectedItemIndex == 0 ? (menuItems.size() - 1) : selectedItemIndex - 1);
+	}
 }
 
 void Menu::Draw(RenderWindow* window)
@@ -39,6 +50,18 @@ void Menu::Draw(RenderWindow* window)
 	{
 		(*it)->Draw(window);
 	}
+}
+
+void Menu::SetSelected(bool _selected)
+{
+	selected = _selected;
+}
+
+void Menu::SetSelectedItemIndex(int _selectedItemIndex)
+{
+	menuItems[selectedItemIndex]->Deselect();
+	selectedItemIndex = _selectedItemIndex;
+	menuItems[selectedItemIndex]->Select();
 }
 
 void Menu::SetVisible(bool visible)
