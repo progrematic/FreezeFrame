@@ -41,26 +41,20 @@ void TitleScreen::Load()
 
 	MenuItem* test3 = new MenuItem();
 	test3->GetText().setString("Settings");
+	test3->SetOnSelect([](void* caller) { ScreenManager::GetInstance()->PushScreen(Screen::ScreenID::SettingsScreen); });
 	mainMenu.AddMenuItem(test3);
 
 	MenuItem* test4 = new MenuItem();
 	test4->GetText().setString("Help");
+	test4->SetOnSelect([](void* caller) { ScreenManager::GetInstance()->PushScreen(Screen::ScreenID::HelpScreen); });
 	mainMenu.AddMenuItem(test4);
 
 	MenuItem* test5 = new MenuItem();
 	test5->GetText().setString("Exit");
+	test5->SetOnSelect([](void* caller) { ScreenManager::GetInstance()->GetWindow()->close(); });
 	mainMenu.AddMenuItem(test5);
 
 	mainMenu.SetSelectedItemIndex(0);
-
-	switch (state)
-	{
-	case State::PressStart:
-		{
-			mainMenu.SetVisible(false);
-			break;
-		}
-	}
 }
 
 void TitleScreen::PollEvent(Event e)
@@ -78,20 +72,7 @@ void TitleScreen::Update(float dt)
 		{
 			if (InputManager::GetInstance()->IsButtonPressed(0, InputManager::InputID::A))
 			{
-				Color pressStartTextColor = pressStartText.getFillColor();
-				pressStartTextColor.a = 0;
-				pressStartText.setFillColor(pressStartTextColor);
-				mainMenu.SetVisible(true);
 				state = State::MainMenu;
-			}
-			break;
-		}
-
-		case State::MainMenu:
-		{
-			if (InputManager::GetInstance()->IsButtonPressed(0, InputManager::InputID::A))
-			{
-				ScreenManager::GetInstance()->PushScreen(ScreenID::SettingsScreen);
 			}
 			break;
 		}
@@ -100,15 +81,10 @@ void TitleScreen::Update(float dt)
 	switch (state)
 	{
 		case State::PressStart:
-			{
-				Color pressStartTextColor = pressStartText.getFillColor();
-				pressStartTextColor.a = (int)(pressStartFadeEffect.Calculate() * 255);
-				pressStartText.setFillColor(pressStartTextColor);
-				break;
-			}
-
-		case State::MainMenu:
 		{
+			Color pressStartTextColor = pressStartText.getFillColor();
+			pressStartTextColor.a = (int)(pressStartFadeEffect.Calculate() * 255);
+			pressStartText.setFillColor(pressStartTextColor);
 			break;
 		}
 	}
@@ -118,8 +94,15 @@ void TitleScreen::Draw(RenderWindow* window)
 {
 	window->draw(bgSprite);
 	window->draw(titleText);
-	window->draw(pressStartText);
-	mainMenu.Draw(window);
+	switch (state)
+	{
+	case State::PressStart:
+		window->draw(pressStartText);
+		break;
+	case State::MainMenu:
+		mainMenu.Draw(window);
+		break;
+	}
 }
 
 void TitleScreen::Unload()

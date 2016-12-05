@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "../Managers/ScreenManager.h"
+#include "../UI/Menu.h"
 
 using namespace std;
 using namespace sf;
@@ -27,6 +28,13 @@ private:
 	Sprite bgSprite;
 
 	Text titleText;
+	Menu menu;
+	Menu audioMenu;
+	Menu videoMenu;
+
+	void ShowAudioMenu();
+	void ShowVideoMenu();
+	void BackToMenu();
 };
 
 #endif

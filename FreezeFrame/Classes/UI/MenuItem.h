@@ -2,7 +2,9 @@
 #define FF_MENUITEM
 
 #include <SFML/Graphics.hpp>
+#include <functional>
 using namespace sf;
+using namespace std;
 
 class MenuItem
 {
@@ -17,17 +19,21 @@ public:
 	void Update(float dt);
 	void Draw(RenderWindow* window);
 
+	void Highlight();
+	void Unhighlight();
 	void Select();
-	void Deselect();
 
 	void SetVisible(bool visible);
 	void SetPosition(Vector2f pos);
+	void SetOnSelect(void(*_onSelect)(void* caller), void* arg = NULL);
 
 private:
 	Texture texture;
 	Sprite background;
 	Text text;
-	bool selected;
+	bool highlighted;
+	void (*onSelect)(void* caller);
+	void* onSelectArg;
 };
 
 #endif

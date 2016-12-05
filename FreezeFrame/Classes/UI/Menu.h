@@ -26,12 +26,15 @@ public:
 	void SetItemSeparation(float _itemSeparation);
 	void ClearMenuItems();
 
+	MenuItem* GetSelectedMenuItem();
+
 private:
 	void UpdateArrangement();
 
+	bool selected;
+
 	vector<MenuItem*> menuItems;
 	int selectedItemIndex;
-	bool selected;
 	bool shouldUpdateArrangement;
 
 	Vector2f position;

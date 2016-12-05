@@ -13,7 +13,7 @@ MenuItem::MenuItem()
 	}
 	background = Sprite(texture);
 	text = Text("Menu Item", ScreenManager::GetInstance()->GetFont(), 40);
-	selected = false;
+	highlighted = false;
 }
 
 void MenuItem::SetBackground(Texture _texture)
@@ -33,11 +33,11 @@ void MenuItem::Draw(RenderWindow* window)
 	window->draw(text);
 }
 
-void MenuItem::Select()
+void MenuItem::Highlight()
 {
-	if (!selected)
+	if (!highlighted)
 	{
-		selected = true;
+		highlighted = true;
 		background.setScale(SELECTED_X_SCALE, SELECTED_Y_SCALE);
 		float widthDiff  = background.getTextureRect().width  * (SELECTED_X_SCALE - 1);
 		float heightDiff = background.getTextureRect().height * (SELECTED_Y_SCALE - 1);
@@ -45,16 +45,28 @@ void MenuItem::Select()
 	}
 }
 
-void MenuItem::Deselect()
+void MenuItem::Unhighlight()
 {
-	if (selected)
+	if (highlighted)
 	{
-		selected = false;
+		highlighted = false;
 		background.setScale(1, 1);
 		float widthDiff = background.getTextureRect().width  * (SELECTED_X_SCALE - 1);
 		float heightDiff = background.getTextureRect().height * (SELECTED_Y_SCALE - 1);
 		background.move(widthDiff / 2, heightDiff / 2);
 	}
+}
+
+void MenuItem::Select()
+{
+	if (onSelect)
+		onSelect(onSelectArg);
+}
+
+void MenuItem::SetOnSelect(void(*_onSelect)(void* caller), void* arg)
+{
+	onSelect = _onSelect;
+	onSelectArg = arg;
 }
 
 Sprite& MenuItem::GetBackground()
@@ -78,7 +90,7 @@ void MenuItem::SetPosition(Vector2f pos)
 	background.setPosition(pos);
 	float textOffset = (background.getTextureRect().width - text.getLocalBounds().width) / 2;
 	text.setPosition(pos + Vector2f(textOffset, 0));
-	if (selected)
+	if (highlighted)
 	{
 		float widthDiff = background.getTextureRect().width  * (SELECTED_X_SCALE - 1);
 		float heightDiff = background.getTextureRect().height * (SELECTED_Y_SCALE - 1);

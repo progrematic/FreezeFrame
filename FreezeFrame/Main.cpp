@@ -23,7 +23,7 @@ int main()
 		Event e;
 		while (window.pollEvent(e))
 		{
-			if (e.type == Event::Closed || (e.type == Event::KeyPressed && e.key.code == Keyboard::Escape))
+			if (e.type == Event::Closed)
 				window.close();
 			ScreenManager::GetInstance()->PollEvent(e);
 			InputManager::GetInstance()->PollEvent(e);

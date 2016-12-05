@@ -6,6 +6,7 @@ Menu::Menu()
 	shouldUpdateArrangement = true;
 	itemSeparation = 10;
 	selectedItemIndex = 0;
+	selected = true;
 }
 
 Menu::~Menu()
@@ -29,26 +30,36 @@ void Menu::Update(float dt)
 	if (shouldUpdateArrangement)
 		UpdateArrangement();
 
-	for (vector<MenuItem*>::iterator it = menuItems.begin(); it != menuItems.end(); it++)
+	if (selected)
 	{
-		(*it)->Update(dt);
-	}
+		for (vector<MenuItem*>::iterator it = menuItems.begin(); it != menuItems.end(); it++)
+		{
+			(*it)->Update(dt);
+		}
 
-	if (InputManager::GetInstance()->IsHighAxisButtonPressed(0, InputManager::AxisID::LVertical))
-	{
-		SetSelectedItemIndex(selectedItemIndex == (menuItems.size() - 1) ? 0 : selectedItemIndex + 1);
-	}
-	if (InputManager::GetInstance()->IsLowAxisButtonPressed(0, InputManager::AxisID::LVertical))
-	{
-		SetSelectedItemIndex(selectedItemIndex == 0 ? (menuItems.size() - 1) : selectedItemIndex - 1);
+		if (InputManager::GetInstance()->IsHighAxisButtonPressed(0, InputManager::AxisID::LVertical))
+		{
+			SetSelectedItemIndex(selectedItemIndex == (menuItems.size() - 1) ? 0 : selectedItemIndex + 1);
+		}
+		if (InputManager::GetInstance()->IsLowAxisButtonPressed(0, InputManager::AxisID::LVertical))
+		{
+			SetSelectedItemIndex(selectedItemIndex == 0 ? (menuItems.size() - 1) : selectedItemIndex - 1);
+		}
+		if (InputManager::GetInstance()->IsButtonPressed(0, InputManager::InputID::A))
+		{
+			GetSelectedMenuItem()->Select();
+		}
 	}
 }
 
 void Menu::Draw(RenderWindow* window)
 {
-	for (vector<MenuItem*>::iterator it = menuItems.begin(); it != menuItems.end(); it++)
+	if (selected)
 	{
-		(*it)->Draw(window);
+		for (vector<MenuItem*>::iterator it = menuItems.begin(); it != menuItems.end(); it++)
+		{
+			(*it)->Draw(window);
+		}
 	}
 }
 
@@ -59,9 +70,9 @@ void Menu::SetSelected(bool _selected)
 
 void Menu::SetSelectedItemIndex(int _selectedItemIndex)
 {
-	menuItems[selectedItemIndex]->Deselect();
+	menuItems[selectedItemIndex]->Unhighlight();
 	selectedItemIndex = _selectedItemIndex;
-	menuItems[selectedItemIndex]->Select();
+	menuItems[selectedItemIndex]->Highlight();
 }
 
 void Menu::SetVisible(bool visible)
@@ -103,4 +114,9 @@ void Menu::UpdateArrangement()
 	}
 
 	shouldUpdateArrangement = false;
+}
+
+MenuItem* Menu::GetSelectedMenuItem()
+{
+	return menuItems[selectedItemIndex];
 }
