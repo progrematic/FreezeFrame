@@ -97,7 +97,10 @@ void SettingsScreen::Update(float dt)
 {
 	if (InputManager::GetInstance()->IsButtonPressed(0, InputManager::InputID::B))
 	{
-		ScreenManager::GetInstance()->PopScreen();
+		if (menu.IsSelected())
+			ScreenManager::GetInstance()->PopScreen();
+		else
+			BackToMenu();
 		return;
 	}
 	menu.Update(dt);
@@ -129,6 +132,7 @@ void SettingsScreen::ShowAudioMenu()
 	menu.SetSelected(false);
 	audioMenu.SetVisible(true);
 	audioMenu.SetSelected(true);
+	audioMenu.SetSelectedItemIndex(0);
 }
 
 void SettingsScreen::ShowVideoMenu()
@@ -139,6 +143,7 @@ void SettingsScreen::ShowVideoMenu()
 	audioMenu.SetSelected(false);
 	videoMenu.SetVisible(true);
 	videoMenu.SetSelected(true);
+	videoMenu.SetSelectedItemIndex(0);
 }
 
 void SettingsScreen::BackToMenu()

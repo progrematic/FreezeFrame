@@ -26,6 +26,7 @@ public:
 	void SetItemSeparation(float _itemSeparation);
 	void ClearMenuItems();
 
+	bool IsSelected();
 	MenuItem* GetSelectedMenuItem();
 
 private:

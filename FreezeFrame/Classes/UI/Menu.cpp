@@ -116,6 +116,11 @@ void Menu::UpdateArrangement()
 	shouldUpdateArrangement = false;
 }
 
+bool Menu::IsSelected()
+{
+	return selected;
+}
+
 MenuItem* Menu::GetSelectedMenuItem()
 {
 	return menuItems[selectedItemIndex];
